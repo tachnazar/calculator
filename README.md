@@ -1,6 +1,6 @@
 # Simple-command-line-calculator with Travis CI continuous integration
 
-To check [Travis CI Build Information for this repository](https://travis-ci.org/ankitbhayani/Simple-command-line-calculator/builds) - https://travis-ci.org/ankitbhayani/Simple-command-line-calculator/builds
+To check the Travis CI Build Information for this repository follow https://travis-ci.org/ankitbhayani/Simple-command-line-calculator/builds link.
 
 A java application with maven build definition, and 3 levels of verbosity logging (INFO, ERROR, and DEBUG) that evaluates expressions in a very simple integer expression language. The program takes an input on the command line, computes the result, and prints it to the console. 
 
