@@ -22,11 +22,13 @@ let(a, let(b, 10, add(b, b)), let(b, 20, add(a, b))  40
 ```
 
 An expression is one of the of the following:
-•	Numbers: integers between Integer.MIN_VALUE and Integer.MAX_VALUE
-•	Variables: strings of characters, where each character is one of a-z, A-Z
-•	Arithmetic functions: add, sub, mult, div, each taking two arbitrary expressions as arguments.  In other words, each argument may be any of the expressions on this list.
-•	A “let” operator for assigning values to variables:
+*	**Numbers**: integers between Integer.MIN_VALUE and Integer.MAX_VALUE
+*	**Variables**: strings of characters, where each character is one of a-z, A-Z
+*	**Arithmetic functions**: add, sub, mult, div, each taking two arbitrary expressions as arguments.  In other words, each argument may be any of the expressions on this list.
+*	A “let” operator for assigning values to variables:
 
-###let(<variable name>, <value expression>, <expression where variable is used>)
+```
+let(<variable name>, <value expression>, <expression where variable is used>)
+```
 
 As with arithmetic functions, the value expression and the expression where the variable is used may be an arbitrary expression from this list. 
