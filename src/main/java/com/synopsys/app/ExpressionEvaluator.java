@@ -19,11 +19,11 @@ public class ExpressionEvaluator {
 		
 		String[] exprArr = new String[2]; 
 		
-		int commaPos = Calculator.checkMatchedParansAndReturnNextDelim(expr, op.length() + 1, ',');
+		int commaPos = SyntaxChecker.checkMatchedParansAndReturnNextDelim(expr, op.length() + 1, ',');
 		String expr1 = expr.substring(op.length() + 1, commaPos);
 		exprArr[0] = expr1;
 		
-		int endPos = Calculator.checkMatchedParansAndReturnNextDelim(expr, commaPos + 1, ')');
+		int endPos = SyntaxChecker.checkMatchedParansAndReturnNextDelim(expr, commaPos + 1, ')');
 		String expr2 = expr.substring(commaPos + 1, endPos);
 		exprArr[1] = expr2;
 		
@@ -38,14 +38,14 @@ public class ExpressionEvaluator {
 	private static String[] get3LetExpr(String expr, String op) {
 		String[] exprArr = new String[3]; 
 		
-		int commaPos = Calculator.checkMatchedParansAndReturnNextDelim(expr, op.length() + 1, ',');
+		int commaPos = SyntaxChecker.checkMatchedParansAndReturnNextDelim(expr, op.length() + 1, ',');
 		String label = expr.substring(op.length() + 1, commaPos);
 		exprArr[0] = label;
 		if(logger.isDebugEnabled()){
 			logger.debug("let label = " + label);
 		}
 		
-		int secondCommaPos = Calculator.checkMatchedParansAndReturnNextDelim(expr, commaPos + 1, ',');
+		int secondCommaPos = SyntaxChecker.checkMatchedParansAndReturnNextDelim(expr, commaPos + 1, ',');
 		String expr1 = expr.substring(commaPos + 1, secondCommaPos);
 		exprArr[1] = expr1;
 		
@@ -53,7 +53,7 @@ public class ExpressionEvaluator {
 			logger.debug("let expr1 = " + expr1);
 		}
 		
-		int endPos = Calculator.checkMatchedParansAndReturnNextDelim(expr, secondCommaPos + 1, ')');
+		int endPos = SyntaxChecker.checkMatchedParansAndReturnNextDelim(expr, secondCommaPos + 1, ')');
 		String expr2 = expr.substring(secondCommaPos + 1, endPos);
 		exprArr[2] = expr2;
 		if(logger.isDebugEnabled()){
@@ -79,7 +79,7 @@ public class ExpressionEvaluator {
 				throw new IllegalArgumentException("The variable in let is not found");
 				}
 	 		
-	 	} else if(Calculator.isNumeric(expr)) {
+	 	} else if(SyntaxChecker.isNumeric(expr)) {
 	 		if(logger.isDebugEnabled()){
 				logger.debug("Expression is a number: Expr0 = " + Integer.parseInt(expr));
 			}
