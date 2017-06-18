@@ -4,3 +4,9 @@
 2017-06-18 16:29:08 DEBUG Calculator:59 - String expession = add(1,2)
 2017-06-18 16:29:08 DEBUG Calculator:60 - prefix value = 6
 2017-06-18 16:29:08 DEBUG Calculator:61 - delimiter = )
+2017-06-18 17:00:56 DEBUG Calculator:154 - String expession = add(1,2)
+2017-06-18 17:00:56 DEBUG Calculator:155 - prefix value = 4
+2017-06-18 17:00:56 DEBUG Calculator:156 - delimiter = ,
+2017-06-18 17:00:56 DEBUG Calculator:154 - String expession = add(1,2)
+2017-06-18 17:00:56 DEBUG Calculator:155 - prefix value = 6
+2017-06-18 17:00:56 DEBUG Calculator:156 - delimiter = )
