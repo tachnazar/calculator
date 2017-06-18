@@ -1,4 +1,8 @@
+
+
 package com.synopsys.app;
+
+import org.apache.log4j.Logger;
 
 public class Calculator {
 	
@@ -7,20 +11,10 @@ public class Calculator {
 	private static final String MULT = "mult";
 	private static final String DIV = "div";
 	private static final String LET = "let";
-	private static final String illegalArgMsg = "Input argument not formed properly. Correct input format: java Calculator \"add(1, 2)\"";
+	private static final String illegalArgumentMessage = "Input arguments are not in proper order. Correct the input format: java Calculator \"add(1, 2)\"";
 
+	final static Logger logger = Logger.getLogger(Calculator.class);
 	
-	/*
-	 * constructor
-	 */
-	public Calculator() {
-		
-	}
-	
-	/*
-	 * method checks for matching parans for the given expr
-	 *
-	 */
 	private boolean checkMatchedParans(String expr) {
 		try {
 			int paranCounter = 0;
@@ -31,7 +25,7 @@ public class Calculator {
 			
 				if (expr.charAt(i) == ')') {
 					if(paranCounter == 0) 
-						throw new IllegalArgumentException(illegalArgMsg);
+						throw new IllegalArgumentException(illegalArgumentMessage);
 					paranCounter--;
 				}
 			
@@ -39,32 +33,29 @@ public class Calculator {
 		
 			return paranCounter == 0;
 		} catch (Exception e){
-			//logger.error(e);
+			logger.error(e);
 		}
 		return false;
 	}
 	
 	
 	
-
+	
 	private static boolean isNumeric(String expr) {
-			String eval = expr;
-			if (expr.startsWith("-")) {
-				eval = expr.substring(1,expr.length());
-			}
+		String eval = expr;
+		if (expr.startsWith("-")) {
+			eval = expr.substring(1,expr.length());
+		}
+
+	 for (Character c: eval.toCharArray()) {
+		 	if (!Character.isDigit(c)) {
+		 		return false;
+		 	}
+	 }
+		
+	return true;
+}
 	
-		 for (Character c: eval.toCharArray()) {
-			 	if (!Character.isDigit(c)) {
-			 		return false;
-			 	}
-		 }
-			
-		return true;
-	}
-	
-	/*
-	 * Syntax checking of expressions
-	 */
 	private void syntaxCheckExpr(String expr) {
 		
 		try{
@@ -95,7 +86,7 @@ public class Calculator {
 				throw new IllegalArgumentException("Paranthesis not matching");
 			
 		} catch (Exception e){
-			
+			logger.error(e);
 			return;
 		}
 			
@@ -103,23 +94,20 @@ public class Calculator {
 			
 	}
 	
-
-
 	
-
+	
 	
 	public static void main(String[] args) {
 		try {
 			if (args.length < 1 || args.length > 1) {
-				throw new IllegalArgumentException(illegalArgMsg);
+				throw new IllegalArgumentException(illegalArgumentMessage);
 			}
 		} catch (Exception e){
-			
+			logger.error(e);
 			return;
 		}
 		Calculator myCal = new Calculator();
 		String input = args[0].replaceAll("\\s", "");
-		System.out.println(input);
 		myCal.syntaxCheckExpr(input);
 		
 		

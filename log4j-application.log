@@ -1,0 +1,132 @@
+2017-06-18 15:47:01 ERROR Calculator:363 - java.lang.NumberFormatException: For input string: ""
+2017-06-18 15:48:26 ERROR Calculator:113 - java.lang.IllegalArgumentException: Input argument not formed properly. Correct input format: java Calculator "add(1, 2)"
+2017-06-18 15:48:26 DEBUG Calculator:72 - String expr = mult   ( add  (2, 2), div( 9, 3))
+2017-06-18 15:48:26 DEBUG Calculator:73 - prefix value = 5
+2017-06-18 15:48:26 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:48:26 ERROR Calculator:217 - java.lang.IllegalArgumentException: unknown operation provided -- need add/sub/mult/div/let
+2017-06-18 15:48:26 DEBUG Calculator:72 - String expr = mult   ( add  (2, 2), div( 9, 3))
+2017-06-18 15:48:26 DEBUG Calculator:73 - prefix value = 34
+2017-06-18 15:48:26 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:48:26 ERROR Calculator:217 - java.lang.StringIndexOutOfBoundsException: String index out of range: 34
+2017-06-18 15:48:26 DEBUG Calculator:72 - String expr = mult   ( add  (2, 2), div( 9, 3))
+2017-06-18 15:48:26 DEBUG Calculator:73 - prefix value = 5
+2017-06-18 15:48:26 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:48:26 DEBUG Calculator:72 - String expr = mult   ( add  (2, 2), div( 9, 3))
+2017-06-18 15:48:26 DEBUG Calculator:73 - prefix value = 34
+2017-06-18 15:48:26 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:48:26 ERROR Calculator:363 - java.lang.StringIndexOutOfBoundsException: String index out of range: 34
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = mult(add(2,2),div(9,3))
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 5
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = add(2,2)
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = add(2,2)
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 6
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = mult(add(2,2),div(9,3))
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 14
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = div(9,3)
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = div(9,3)
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 6
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = mult(add(2,2),div(9,3))
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 5
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = mult(add(2,2),div(9,3))
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 14
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:49:34 DEBUG Calculator:319 - MULT Expression: Expr0 = add(2,2), Expr1 = div(9,3)
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = add(2,2)
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = add(2,2)
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 6
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:49:34 DEBUG Calculator:303 - ADD Expression: Expr0 = 2, Expr1 = 2
+2017-06-18 15:49:34 DEBUG Calculator:295 - Expression is a number: Expr0 = 2
+2017-06-18 15:49:34 DEBUG Calculator:295 - Expression is a number: Expr0 = 2
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = div(9,3)
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:49:34 DEBUG Calculator:72 - String expr = div(9,3)
+2017-06-18 15:49:34 DEBUG Calculator:73 - prefix value = 6
+2017-06-18 15:49:34 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:49:34 DEBUG Calculator:327 - DIV Expression: Expr0 = 9, Expr1 = 3
+2017-06-18 15:49:34 DEBUG Calculator:295 - Expression is a number: Expr0 = 9
+2017-06-18 15:49:34 DEBUG Calculator:295 - Expression is a number: Expr0 = 3
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = add(mult(add(2,2),div(9,3)),mult(2,3))
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = mult(add(2,2),div(9,3))
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 5
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = add(2,2)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = add(2,2)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 6
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = mult(add(2,2),div(9,3))
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 14
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = div(9,3)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = div(9,3)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 6
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = add(mult(add(2,2),div(9,3)),mult(2,3))
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 28
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = mult(2,3)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 5
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = mult(2,3)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 7
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = add(mult(add(2,2),div(9,3)),mult(2,3))
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = add(mult(add(2,2),div(9,3)),mult(2,3))
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 28
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:303 - ADD Expression: Expr0 = mult(add(2,2),div(9,3)), Expr1 = mult(2,3)
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = mult(add(2,2),div(9,3))
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 5
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = mult(add(2,2),div(9,3))
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 14
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:319 - MULT Expression: Expr0 = add(2,2), Expr1 = div(9,3)
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = add(2,2)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = add(2,2)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 6
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:303 - ADD Expression: Expr0 = 2, Expr1 = 2
+2017-06-18 15:50:30 DEBUG Calculator:295 - Expression is a number: Expr0 = 2
+2017-06-18 15:50:30 DEBUG Calculator:295 - Expression is a number: Expr0 = 2
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = div(9,3)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 4
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = div(9,3)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 6
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:327 - DIV Expression: Expr0 = 9, Expr1 = 3
+2017-06-18 15:50:30 DEBUG Calculator:295 - Expression is a number: Expr0 = 9
+2017-06-18 15:50:30 DEBUG Calculator:295 - Expression is a number: Expr0 = 3
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = mult(2,3)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 5
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = ,
+2017-06-18 15:50:30 DEBUG Calculator:72 - String expr = mult(2,3)
+2017-06-18 15:50:30 DEBUG Calculator:73 - prefix value = 7
+2017-06-18 15:50:30 DEBUG Calculator:74 - delimiter = )
+2017-06-18 15:50:30 DEBUG Calculator:319 - MULT Expression: Expr0 = 2, Expr1 = 3
+2017-06-18 15:50:30 DEBUG Calculator:295 - Expression is a number: Expr0 = 2
+2017-06-18 15:50:30 DEBUG Calculator:295 - Expression is a number: Expr0 = 3
+2017-06-18 15:56:22 ERROR Calculator:106 - java.lang.IllegalArgumentException: Input arguments are not in proper order. Correct the input format: java Calculator "add(1, 2)"
