@@ -10,3 +10,24 @@
 2017-06-18 17:00:56 DEBUG Calculator:154 - String expession = add(1,2)
 2017-06-18 17:00:56 DEBUG Calculator:155 - prefix value = 6
 2017-06-18 17:00:56 DEBUG Calculator:156 - delimiter = )
+2017-06-18 17:36:12 DEBUG Calculator:187 - String expession = add(1,2)
+2017-06-18 17:36:12 DEBUG Calculator:188 - prefix value = 4
+2017-06-18 17:36:12 DEBUG Calculator:189 - delimiter = ,
+2017-06-18 17:36:12 DEBUG Calculator:187 - String expession = add(1,2)
+2017-06-18 17:36:12 DEBUG Calculator:188 - prefix value = 6
+2017-06-18 17:36:12 DEBUG Calculator:189 - delimiter = )
+2017-06-18 17:47:59 DEBUG Calculator:187 - String expession = add(1,2)
+2017-06-18 17:47:59 DEBUG Calculator:188 - prefix value = 4
+2017-06-18 17:47:59 DEBUG Calculator:189 - delimiter = ,
+2017-06-18 17:47:59 DEBUG Calculator:187 - String expession = add(1,2)
+2017-06-18 17:47:59 DEBUG Calculator:188 - prefix value = 6
+2017-06-18 17:47:59 DEBUG Calculator:189 - delimiter = )
+2017-06-18 17:47:59 DEBUG Calculator:187 - String expession = add(1,2)
+2017-06-18 17:47:59 DEBUG Calculator:188 - prefix value = 4
+2017-06-18 17:47:59 DEBUG Calculator:189 - delimiter = ,
+2017-06-18 17:47:59 DEBUG Calculator:187 - String expession = add(1,2)
+2017-06-18 17:47:59 DEBUG Calculator:188 - prefix value = 6
+2017-06-18 17:47:59 DEBUG Calculator:189 - delimiter = )
+2017-06-18 17:47:59 DEBUG ExpressionEvaluator:92 - ADD Expression: Expr0 = 1, Expr1 = 2
+2017-06-18 17:47:59 DEBUG ExpressionEvaluator:84 - Expression is a number: Expr0 = 1
+2017-06-18 17:47:59 DEBUG ExpressionEvaluator:84 - Expression is a number: Expr0 = 2

@@ -2,18 +2,20 @@
 
 package com.synopsys.app;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 import org.apache.log4j.Logger;
 
 public class Calculator {
 	
-	private static final String ADD = "add";
-	private static final String SUB = "sub";
-	private static final String MULT = "mult";
-	private static final String DIV = "div";
-	private static final String LET = "let";
-	private static final String illegalArgumentMessage = "Input arguments are not in proper order. Correct the input format: java Calculator \"add(1, 2)\"";
-
 	final static Logger logger = Logger.getLogger(Calculator.class);
+	public static Map<String, LinkedList<Integer>> variableMap;
+	
+	/* Constructor*/
+	public Calculator() {
+		Calculator.variableMap = new HashMap<String, LinkedList<Integer>>();
+	}
 	
 	/* 1. Main method */
 	public static void main(String[] args) {
@@ -21,7 +23,7 @@ public class Calculator {
 		/* Input arguments length check conditions */
 		try {
 			if (args.length < 1 || args.length > 1) {
-				throw new IllegalArgumentException(illegalArgumentMessage);
+				throw new IllegalArgumentException(Constants.illegalArgumentMessage);
 			}
 		} catch (Exception e) {
 			logger.error(e);
@@ -32,7 +34,8 @@ public class Calculator {
 		/* Removing unnecessary spaces from the input string */
 		String input = args[0].replaceAll("\\s", "");
 		calcObj.checkInitialSyntax(input);
-
+		System.out.println(ExpressionEvaluator.getCalculatedValue(input));
+		
 	}
 
 	/* 2. Initial Syntax checking of an expression */
@@ -43,23 +46,23 @@ public class Calculator {
 
 			} else if (isNumeric(expr)) {
 
-			} else if (expr.startsWith(ADD)) {
-				singleExpressionSyntaxCheck(expr, ADD);
+			} else if (expr.startsWith(Constants.ADD)) {
+				singleExpressionSyntaxCheck(expr, Constants.ADD);
 
-			} else if (expr.startsWith(SUB)) {
-				System.out.println("Inside ADD");
+			} else if (expr.startsWith(Constants.SUB)) {
+				singleExpressionSyntaxCheck(expr, Constants.SUB);
 
-			} else if (expr.startsWith(MULT)) {
-				System.out.println("Inside ADD");
+			} else if (expr.startsWith(Constants.MULT)) {
+				singleExpressionSyntaxCheck(expr, Constants.MULT);
 
-			} else if (expr.startsWith(DIV)) {
-				System.out.println("Inside ADD");
+			} else if (expr.startsWith(Constants.DIV)) {
+				singleExpressionSyntaxCheck(expr, Constants.DIV);
 
-			} else if (expr.startsWith(LET)) {
-				System.out.println("Inside ADD");
+			} else if (expr.startsWith(Constants.LET)) {
+				letExpressionSyntaxCheck(expr, Constants.LET);
 
 			} else {
-				throw new IllegalArgumentException("unknown operation provided -- need add/sub/mult/div/let");
+				throw new IllegalArgumentException("unknown operation provided -- need Constants.ADD/Constants.SUB/mult/div/let");
 			}
 
 			if (!checkMatchedParantheses(expr))
@@ -73,7 +76,7 @@ public class Calculator {
 	}
 
 	/* 3. Check if the expression is numeric in nature */
-	private static boolean isNumeric(String expr) {
+	public static boolean isNumeric(String expr) {
 		String eval = expr;
 		if (expr.startsWith("-")) {
 			eval = expr.substring(1, expr.length());
@@ -99,7 +102,7 @@ public class Calculator {
 
 				if (expr.charAt(i) == ')') {
 					if (paranCounter == 0)
-						throw new IllegalArgumentException(illegalArgumentMessage);
+						throw new IllegalArgumentException(Constants.illegalArgumentMessage);
 					paranCounter--;
 				}
 
@@ -112,7 +115,7 @@ public class Calculator {
 		return false;
 	}
 	
-	/* 5. Syntax check for each of the two expressions for add/sub/mult/div */
+	/* 5. Syntax check for each of the two expressions for Constants.ADD/Constants.SUB/mult/div */
 	private void singleExpressionSyntaxCheck(String expression, String operation) {
 
 		checkBeginParentheses(expression, operation.length());
@@ -127,11 +130,41 @@ public class Calculator {
 		checkInitialSyntax(expr2);
 	}
 
-	/* 6. To check if there is a parentheses at the beginning */
-	private static void checkBeginParentheses(String exoression, int prefix) {
+	/* 6. Syntax check for each of the let expression */
+	private void letExpressionSyntaxCheck(String expression, String op) {
+		checkBeginParentheses(expression, op.length());
+		
+		int commaPos = checkMatchedParansAndReturnNextDelim(expression, op.length() + 1, ',');
+		String varName = expression.substring(op.length() + 1, commaPos);
+		if(logger.isDebugEnabled()){
+			logger.debug("let label = " + varName);
+		}
+		checkInitialSyntax(varName);
+		
+		
+		int secondCommaPos = checkMatchedParansAndReturnNextDelim(expression, commaPos + 1, ',');
+		String valueExprName = expression.substring(commaPos + 1, secondCommaPos);
+		if(logger.isDebugEnabled()){
+			logger.debug("let valueExprName = " + valueExprName);
+		}
+		checkInitialSyntax(valueExprName);
+		
+		
+		int endPos = checkMatchedParansAndReturnNextDelim(expression, secondCommaPos + 1, ')');
+		String exprName = expression.substring(secondCommaPos + 1, endPos);
+		if(logger.isDebugEnabled()){
+			logger.debug("let exprName = " + exprName);
+		}
+		checkInitialSyntax(exprName);
+		
+		
+	}
+	
+	/* 7. To check if there is a parentheses at the beginning */
+	private static void checkBeginParentheses(String expression, int prefix) {
 		try {
-			if (!exoression.startsWith("(", prefix)) {
-				throw new IllegalArgumentException(illegalArgumentMessage);
+			if (!expression.startsWith("(", prefix)) {
+				throw new IllegalArgumentException(Constants.illegalArgumentMessage);
 			}
 		} catch (Exception e) {
 			logger.error(e);
@@ -139,16 +172,16 @@ public class Calculator {
 		}
 	}
 
-	/* 7. Method checks for matching parentheses starting at input prefix
+	/* 8. Method checks for matching parentheses starting at input prefix
 	 * 
 	 * @param expr - input string
 	 * 
 	 * @param prefix
 	 * 
-	 * @return index after the parentheses match E.g.: add(add(1,2), 3) then
+	 * @return index after the parentheses match E.g.: Constants.ADD(Constants.ADD(1,2), 3) then
 	 * prefix: 4 and should return: 12
 	 */
-	private static int checkMatchedParansAndReturnNextDelim(String expression, int prefix, Character delimiter) {
+	public static int checkMatchedParansAndReturnNextDelim(String expression, int prefix, Character delimiter) {
 
 		if (logger.isDebugEnabled()) {
 			logger.debug("String expession = " + expression);
@@ -168,19 +201,22 @@ public class Calculator {
 
 				if (expression.charAt(i) == ')') {
 					if (paranCounter == 0)
-						throw new IllegalArgumentException(illegalArgumentMessage);
+						throw new IllegalArgumentException(Constants.illegalArgumentMessage);
 					paranCounter--;
 				}
 
 			}
 
 			if (paranCounter > 0)
-				throw new IllegalArgumentException(illegalArgumentMessage);
+				throw new IllegalArgumentException(Constants.illegalArgumentMessage);
 
 		} catch (Exception e) {
 			logger.error(e);
 		}
 		return i;
 	}
-		
+	
+	
+	
+	
 }
