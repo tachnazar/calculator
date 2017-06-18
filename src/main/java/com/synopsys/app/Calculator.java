@@ -38,9 +38,6 @@ public class Calculator {
 		return false;
 	}
 	
-	
-	
-	
 	private static boolean isNumeric(String expr) {
 		String eval = expr;
 		if (expr.startsWith("-")) {
@@ -56,7 +53,66 @@ public class Calculator {
 	return true;
 }
 	
-	private void syntaxCheckExpr(String expr) {
+    private static int checkMatchedParansAndReturnNextDelim(String expression, int prefix, Character delimiter) {
+		
+		if(logger.isDebugEnabled()){
+			logger.debug("String expession = " + expression);
+			logger.debug("prefix value = " + prefix);
+			logger.debug("delimiter = " + delimiter);
+		}
+		int i = prefix;
+		try {
+			int paranCounter = 0;
+			for (; i < expression.length(); i++) {
+			
+				if (paranCounter == 0 && expression.charAt(i) == delimiter)
+					return i;
+			
+				if (expression.charAt(i) == '(') 
+					paranCounter++;
+			
+				if (expression.charAt(i) == ')') {
+					if(paranCounter == 0) 
+						throw new IllegalArgumentException(illegalArgumentMessage);
+					paranCounter--;
+				}
+			
+			}
+		
+			if(paranCounter > 0) 
+				throw new IllegalArgumentException(illegalArgumentMessage);
+			
+			} catch (Exception e){
+				logger.error(e);
+			}
+			return i;
+	}
+	
+	private void singleExpressionSyntaxCheck(String expression, String operation) {
+		
+		int prefix = operation.length();
+		
+		try {
+			if (!expression.startsWith("(", prefix)) {
+				throw new IllegalArgumentException(illegalArgumentMessage);
+			}
+		} catch (Exception e){
+			logger.error(e);
+			return;
+		}
+		
+		int commaPos = checkMatchedParansAndReturnNextDelim(expression, operation.length() + 1, ',');
+		String expr1 = expression.substring(operation.length() + 1, commaPos);
+		checkSyntaxInExpression(expr1);
+		
+		int endPos = checkMatchedParansAndReturnNextDelim(expression, commaPos + 1, ')');
+		assert (endPos == expression.length() - 1);
+		String expr2 = expression.substring(commaPos + 1, endPos);
+		checkSyntaxInExpression(expr2);
+	}
+	
+	
+	private void checkSyntaxInExpression(String expr) {
 		
 		try{
 		 	if(expr.matches("[a-zA-z]+")) {
@@ -64,7 +120,7 @@ public class Calculator {
 		 	} else if(isNumeric(expr)) {
 		 		
 		 	} else if (expr.startsWith(ADD)) {
-		 		System.out.println("Inside ADD");
+		 		singleExpressionSyntaxCheck(expr, ADD);
 				
 		 	} else if (expr.startsWith(SUB)) {
 		 		System.out.println("Inside ADD");
@@ -95,9 +151,9 @@ public class Calculator {
 	}
 	
 	
-	
-	
 	public static void main(String[] args) {
+		
+		/*Input arguments length check conditions*/
 		try {
 			if (args.length < 1 || args.length > 1) {
 				throw new IllegalArgumentException(illegalArgumentMessage);
@@ -106,9 +162,11 @@ public class Calculator {
 			logger.error(e);
 			return;
 		}
-		Calculator myCal = new Calculator();
+		
+		Calculator calcObj = new Calculator();
+		/* Removing unnecessary spaces from the input string*/
 		String input = args[0].replaceAll("\\s", "");
-		myCal.syntaxCheckExpr(input);
+		calcObj.checkSyntaxInExpression(input);
 		
 		
 	}
