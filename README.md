@@ -1,6 +1,8 @@
-# Simple-command-line-calculator
+# Simple-command-line-calculator with Travis CI continuous integration
 
-A java application that evaluates expressions in a very simple integer expression language. The program takes an input on the command line, computes the result, and prints it to the console. 
+[Travis CI Build Information for this repository](https://travis-ci.org/ankitbhayani/Simple-command-line-calculator/builds) 
+
+A java application with maven build definition that evaluates expressions in a very simple integer expression language. The program takes an input on the command line, computes the result, and prints it to the console. 
 
 For example:
 
