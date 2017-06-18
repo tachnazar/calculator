@@ -1,9 +1,4 @@
-
-
-
-
-
-
+package com.synopsys.app;
 
 public class Calculator {
 	
@@ -13,9 +8,6 @@ public class Calculator {
 	private static final String DIV = "div";
 	private static final String LET = "let";
 	private static final String illegalArgMsg = "Input argument not formed properly. Correct input format: java Calculator \"add(1, 2)\"";
-
-
-	
 
 	
 	/*
@@ -53,10 +45,6 @@ public class Calculator {
 	}
 	
 	
-	
-
-
-
 	
 
 	private static boolean isNumeric(String expr) {
@@ -130,7 +118,9 @@ public class Calculator {
 			return;
 		}
 		Calculator myCal = new Calculator();
-		myCal.syntaxCheckExpr(args[0].trim());
+		String input = args[0].replaceAll("\\s", "");
+		System.out.println(input);
+		myCal.syntaxCheckExpr(input);
 		
 		
 	}
