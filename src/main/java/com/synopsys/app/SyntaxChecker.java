@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 public class SyntaxChecker {
 
 	final static Logger logger = Logger.getLogger(Calculator.class);
-	/* 2. Initial Syntax checking of an expression */
+	/* Initial Syntax checking of an expression */
 	public static void checkInitialSyntax(String expr) {
 
 		try {
@@ -42,7 +42,7 @@ public class SyntaxChecker {
 
 	}
 
-	/* 3. Check if the expression is numeric in nature */
+	/* Check if the expression is numeric in nature */
 	public static boolean isNumeric(String expr) {
 		String eval = expr;
 		if (expr.startsWith("-")) {
@@ -58,7 +58,7 @@ public class SyntaxChecker {
 		return true;
 	}
 
-	/* 4. Method checks for matching parentheses in given expression */
+	/*  Method checks for matching parentheses in given expression */
 	private static boolean checkMatchedParantheses(String expr) {
 		try {
 			int paranCounter = 0;
@@ -82,7 +82,7 @@ public class SyntaxChecker {
 		return false;
 	}
 	
-	/* 5. Syntax check for each of the two expressions for Constants.ADD/Constants.SUB/mult/div */
+	/*  Syntax check for each of the two expressions for Constants.ADD/Constants.SUB/mult/div */
 	public static void singleExpressionSyntaxCheck(String expression, String operation) {
 
 		checkBeginParentheses(expression, operation.length());
@@ -97,7 +97,7 @@ public class SyntaxChecker {
 		checkInitialSyntax(expr2);
 	}
 
-	/* 6. Syntax check for each of the let expression */
+	/*  Syntax check for each of the let expression */
 	public static void letExpressionSyntaxCheck(String expression, String op) {
 		checkBeginParentheses(expression, op.length());
 		
@@ -127,7 +127,7 @@ public class SyntaxChecker {
 		
 	}
 	
-	/* 7. To check if there is a parentheses at the beginning */
+	/*  To check if there is a parentheses at the beginning */
 	private static void checkBeginParentheses(String expression, int prefix) {
 		try {
 			if (!expression.startsWith("(", prefix)) {
@@ -139,7 +139,7 @@ public class SyntaxChecker {
 		}
 	}
 
-	/* 8. Method checks for matching parentheses starting at input prefix
+	/* Method checks for matching parentheses starting at input prefix
 	 * 
 	 * @param expr - input string
 	 * 
